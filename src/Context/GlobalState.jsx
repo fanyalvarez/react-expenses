@@ -14,12 +14,19 @@ export const useGlobalState = () => {
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState); //es un objeto y lo espera el useReducer
 
-  // retun funcio para anadir
-  const addTransaction = (transaction) => {
-    // console.log("add transaction");
+  // funcio para anadir
+  const addTransaction = (transaction) => {// console.log("add transaction");
     dispatch({
       type: "ADD_TRANSACTION",
       payload: transaction,
+    });
+  };
+
+  // eliminar operacion por id
+  const deleteTransaction = (id) => {
+    dispatch({
+      type: "DELETE_TRANSACTION",
+      payload: id,
     });
   };
 
@@ -28,6 +35,7 @@ export const GlobalProvider = ({ children }) => {
       value={{
         transactions: state.transactions,
         addTransaction,
+        deleteTransaction,
       }}
     >
       {children}

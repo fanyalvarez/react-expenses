@@ -5,7 +5,7 @@ function Balance() {
   return (
     <>
       <div>Balance</div>
-      <div>{JSON.stringify(data)}</div>
+      {/* <div>{JSON.stringify(data)}</div> */}
     </>
   );
 }

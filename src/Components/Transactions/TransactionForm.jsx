@@ -3,6 +3,7 @@ import { useGlobalState } from "../../Context/GlobalState";
 
 function TransactionForm() {
   const { addTransaction } = useGlobalState(); // obtener info
+  
   // capturar los valores
   const [description, setDescription] = useState(); // gaurdar la descripcion en que hemos gastado
   const [amount, setAmount] = useState(0); // el monto ingresado comienza con 0 k
@@ -13,8 +14,7 @@ function TransactionForm() {
       id: window.crypto.randomUUID(),
       description,
       amount,
-    });
-    console.log(description, amount); // obtiene la info del form
+    });  // console.log(description, amount); // obtiene la info del form
   };
   return (
     <div>
