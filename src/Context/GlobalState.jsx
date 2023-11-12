@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 import AppReducer from "./AppReducer";
 
 const initialState = {
@@ -12,10 +12,20 @@ export const useGlobalState = () => {
 };
 
 export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState); //es un objeto y lo espera el useReducer
+  //es un objeto y lo espera el useReducer
+  const [state, dispatch] = useReducer(AppReducer, initialState, () => {
+    // darle la indicacionde que inie con la info que hay en el local,
+    const localData = localStorage.getItem("transactions");
+    return localData ? JSON.parse(localData) : initialState; //local si noy hay initail state = linea 4
+  });
+
+  useEffect(() => {
+    localStorage.setItem('transactions', JSON.stringify(state),[state])})
+  
 
   // funcio para anadir
-  const addTransaction = (transaction) => {// console.log("add transaction");
+  const addTransaction = (transaction) => {
+    // console.log("add transaction");
     dispatch({
       type: "ADD_TRANSACTION",
       payload: transaction,
