@@ -2,7 +2,7 @@ import { useGlobalState } from "../../Context/GlobalState";
 
 function TransactionList() {
   const { transactions, deleteTransaction } = useGlobalState();
-  console.log(transactions)
+  // console.log(transactions)
 
   return (
     <>
