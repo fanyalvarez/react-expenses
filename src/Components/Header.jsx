@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function Hearder() {
-  return (
-    <div>Hearder</div>
-  )
+  return <div className="text-2xl font-bold text-center w-full">Expense Tracker</div>;
 }

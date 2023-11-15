@@ -4,14 +4,14 @@ function Balance() {
   const { transactions } = useGlobalState();
   // console.log(transactions);
   const amounts = transactions.map((transaction) => transaction.amount);
-  const total = amounts.reduce((acc, item) => (acc += item), 0);
+  const total = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2)
 
   return (
-    <>
-      {JSON.stringify(total, null, 2)}
-
-      <div>Balance</div>
-    </>
+    <div className="flex justify-between items-center my-2">
+      {/* {JSON.stringify(total, null, 2)} */}
+      <h4 className="text-slate-400">Your Balance</h4>
+      <h1 className="text-2xl font-bold">${total}</h1>
+    </div>
   );
 }
 

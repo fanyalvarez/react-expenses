@@ -5,30 +5,28 @@ function IncomeExpenses() {
   // console.log(transactions);
 
   const amounts = transactions.map((transaction) => transaction.amount);
-  console.log(amounts);
+  // console.log(amounts);
 
   const income = amounts
     .filter((item) => item > 0)
     .reduce((acc, item) => (acc += item), 0);
-  const expense = amounts
-    .filter((item) => item < 0)
-    .reduce((acc, item) => (acc += item), 0) * -1
+  const expense =
+    amounts.filter((item) => item < 0).reduce((acc, item) => (acc += item), 0) *
+    -1;
 
-  console.log(income , expense);
+  // console.log(income, expense);
 
   return (
     <>
-      <hr />
-      <div>
+      <div className="flex justify-between my-2">
         <h3>Ingresos</h3>
-        <p>{income}</p>
+        <p>${income}</p>
       </div>
-      <hr />
-      <div>
+
+      <div className="flex justify-between my-2">
         <h3>Egresos</h3>
-        <p>{expense}</p>
+        <p>${expense}</p>
       </div>
-      <hr />
     </>
   );
 }
