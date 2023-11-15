@@ -22,6 +22,8 @@ function ExpenseChart() {
   //  totales en porcentajes
   const totalIncPercentage = Math.round((totalExpense / totalIncome) * 100);
   const totalExpPercentage = Math.round(100 - totalIncPercentage);
+  console.log(totalIncPercentage)
+  console.log(totalExpPercentage)
 
   return (
     <VictoryPie

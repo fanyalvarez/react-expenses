@@ -15,6 +15,7 @@ function TransactionForm() {
       description,
       amount: +amount,
     }); // console.log(description, amount); // obtiene la info del form
+    location.reload()
     setAmount(0)
     setDescription('')
   };
